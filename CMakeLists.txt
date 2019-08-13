@@ -2,7 +2,13 @@ cmake_minimum_required (VERSION 2.8.8)
 project (Simple-Web-Server)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -Wextra")
 
-include_directories(.)
+
+add_library(simple-web-server INTERFACE)
+
+target_include_directories(simple-web-server INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})
+
+
+target_link_libraries(simple-web-server INTERFACE ${CMAKE_THREAD_LIBS_INIT})
 
 find_package(Threads REQUIRED)
 
