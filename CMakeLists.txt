@@ -53,5 +53,4 @@ endif()
 
 enable_testing()
 add_subdirectory(tests)
-
-install(FILES server_http.hpp client_http.hpp server_https.hpp client_https.hpp DESTINATION include/simple-web-server)
+ install(FILES asio_compatibility.hpp server_http.hpp client_http.hpp server_https.hpp client_https.hpp crypto.hpp utility.hpp status_code.hpp mutex.hpp DESTINATION include/simple-web-server)
