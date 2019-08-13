@@ -1,15 +1,16 @@
 if(NOT MSVC)
+
     add_compile_options(-fno-access-control)
     if (CMAKE_CXX_COMPILER_ID MATCHES "Clang")
         add_compile_options(-Wno-thread-safety)
     endif()
-    
+
     add_executable(io_test io_test.cpp)
-    target_link_libraries(io_test simple-web-server Threads)
+    target_link_libraries(io_test simple-web-server ${CMAKE_THREAD_LIBS_INIT})
     add_test(NAME io_test COMMAND io_test)
 
     add_executable(parse_test parse_test.cpp)
-    target_link_libraries(parse_test simple-web-server Threads)
+    target_link_libraries(parse_test simple-web-server ${CMAKE_THREAD_LIBS_INIT})
     add_test(NAME parse_test COMMAND parse_test)
 endif()
 
